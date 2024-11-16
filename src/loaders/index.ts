@@ -1,5 +1,5 @@
-const expressIndexLoader = require('./express');
+import loader from "./express";
 
 export default async (app: any) => {
-  await expressIndexLoader(app);
+  await loader(app);
 };

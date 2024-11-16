@@ -1,8 +1,8 @@
 import express, { Express, Request, Response } from "express";
-import { getSlides } from '../controllers/homeslide.controller';
+import HomeSlideController from "../controllers/homeslide.controller";
 const router = express.Router();
 
+router.get("/home-slides", HomeSlideController.getAll);
+router.post("/home-slides", HomeSlideController.insert);
 
-router.get('/slides', getSlides);
-
-module.exports = router;
+export default router;

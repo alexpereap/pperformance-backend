@@ -1,7 +1,11 @@
-const slideRouter = require('../routes/slide.route');
+import homeSlidesRoutes from "../routes/slide.route";
+import express, { Express } from "express";
 
-module.exports = async (app:any) => {
-  app.use(slideRouter);
+export default async (app: any) => {
+  app.use(express.json());
+
+  // routes definitions
+  app.use(homeSlidesRoutes);
 
   return app;
-}
+};

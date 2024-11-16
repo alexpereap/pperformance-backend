@@ -1,14 +1,14 @@
 // src/index.ts
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import dotenv from "dotenv";
-import loader = require('./loaders');
-const http = require('http');
+import loader = require("./loaders");
+import http from "http";
 
 dotenv.config();
 
 const port = process.env.PORT || 3000;
 
-const startServer = async() => {
+const startServer = async () => {
   const app: Express = express();
   await loader.default(app);
 
@@ -16,15 +16,6 @@ const startServer = async() => {
   const server = httpServer.listen(port, () => {
     console.log(`server listening on port ${port}`);
   });
-
-}
-
-/* app.get("/", (req: Request, res: Response) => {
-  res.send("Express hola + TypeScript PEREA PERFORMANCE");
-});
-
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});*/
+};
 
 startServer();
