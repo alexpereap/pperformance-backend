@@ -1,0 +1,30 @@
+{
+  "name": "pereaperformance-backend",
+  "version": "0.0.1",
+  "description": "Backend for pereaperformance apps",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-debug": "node --inspect=0.0.0.0:9229 --require ts-node/register src/index.ts",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec 'node --inspect=0.0.0.0:9229 --require ts-node/register src/index.ts'"
+  },
+  "author": "Alex Perea",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "concurrently": "^9.1.0",
+    "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
