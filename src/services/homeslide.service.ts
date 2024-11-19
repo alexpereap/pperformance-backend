@@ -1,4 +1,3 @@
-import express, { Request, Response } from "express";
 const db = require("../models");
 const { HomeSlide } = db;
 
@@ -52,7 +51,7 @@ class HomeSlideService {
    * @param {string} legend
    * @param {number} order
    * @param {string} position
-   * @returns {Promise<HomeSlide>}
+   * @returns {Promise<typeof HomeSlide>}
    */
   static insert = async (
     image: string,

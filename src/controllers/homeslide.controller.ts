@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import services from "./../services";
 
 /**
@@ -12,7 +12,7 @@ import services from "./../services";
  * @param {Response} res
  * @returns {Promise<express.Response<any, Record<string, any>> | Json>}
  */
-const getAll = async (req: Request, res: Response) => {
+const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const homeSlides = await services.homeslideService.getAll();
     return res.status(201).json({
@@ -20,7 +20,7 @@ const getAll = async (req: Request, res: Response) => {
       success: true,
     });
   } catch (e) {
-    console.error(e);
+    next(e);
   }
 };
 
@@ -35,7 +35,7 @@ const getAll = async (req: Request, res: Response) => {
  * @param {Response} res
  * @returns {Promise<express.Response<any, Record<string, any>> | Json>}
  */
-const insert = async (req: Request, res: Response) => {
+const insert = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { image, legend, order, position } = req.body;
     const homeSlide = await services.homeslideService.insert(
@@ -50,7 +50,7 @@ const insert = async (req: Request, res: Response) => {
       success: true,
     });
   } catch (e) {
-    console.error(e);
+    next(e);
   }
 };
 
